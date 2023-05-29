@@ -1,0 +1,25 @@
+/* *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: white;
+}
+
+
+header{
+   display: grid;
+   align-items: center;
+   background-color: #000046;
+   height: 80px;
+   width: 100vw;
+   position: fixed;
+   font-size: 30px;
+   top: 0;
+}
+
+p{
+    padding-left: 20px;
+} */
+
+

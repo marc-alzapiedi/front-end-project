@@ -1,6 +1,7 @@
 import Login from "./pages/login";
 import { Routes, Route } from "react-router-dom";
 import CreateNewAccount from "./pages/new-account";
+import RecoverPassword from "./pages/password-recovery";
 
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
 
       <Route path="/createaccount" 
       element={<CreateNewAccount />}/>
+
+      <Route path="/recoverpassword" element={<RecoverPassword />}/>
 
     </Routes>
     

@@ -12,10 +12,14 @@ const CreateNewAccount = () => {
     const [inputRepeatPassword, setRepeatPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false)
     const [showRepeat, setShowRepeat] = useState(false)
+    const [inputEmail, setEmail] = useState("")
 
     const onChangeUsername = (event) => {
         setInputUsername(event.target.value)
        
+    }
+    const onChangeEmail = (event) => {
+        setEmail(event.target.value)
     }
 
     const onChangePassword = (event) => {
@@ -39,11 +43,33 @@ const CreateNewAccount = () => {
 
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        const newUserCredentials = {
+            username: inputUsername,
+            password: inputPassword,
+            email: inputEmail,
+        }
+
+        const options = {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"  
+            },
+            body: JSON.stringify(newUserCredentials)
+
+        }
+
+        fetch('http://localhost:4000/credentials', options)
+        .then(response => response.json())
+
+    }
 
     return (
         <>
             <Container>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <SiteLogo />
                     <label id = 'username'>
                         <strong>
@@ -51,6 +77,12 @@ const CreateNewAccount = () => {
                         </strong>
                     </label>
                     <input type="text" name="username" onChange={onChangeUsername} value={inputUsername}/>
+                    <label id = 'email'>
+                        <strong>
+                            Enter Email
+                        </strong>
+                    </label>
+                    <input type="email" name="email" onChange={onChangeEmail} value={inputEmail}/>
 
                     <label id ='setpassword'>
                         <strong>
@@ -100,7 +132,7 @@ const CreateNewAccount = () => {
 
 
                 <button>
-                    Create an Account
+                    Create an Account and Login
                 </button>
 
 

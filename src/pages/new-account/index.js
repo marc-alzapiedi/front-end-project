@@ -3,6 +3,7 @@ import SiteLogo from "../../icons/SiteLogo"
 import {useState} from 'react'
 import EyeLogoOff from "../../icons/EyeLogoOff"
 import EyeLogoOn from "../../icons/EyeLogoOn"
+import { useNavigate } from "react-router-dom"
 
 
 const CreateNewAccount = () => {
@@ -13,6 +14,7 @@ const CreateNewAccount = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [showRepeat, setShowRepeat] = useState(false)
     const [inputEmail, setEmail] = useState("")
+    const navigate = useNavigate()
 
     const onChangeUsername = (event) => {
         setInputUsername(event.target.value)
@@ -64,7 +66,13 @@ const CreateNewAccount = () => {
         fetch('http://localhost:4000/credentials', options)
         .then(response => response.json())
 
+        navigate('/')
+
     }
+
+   
+
+   
 
     return (
         <>
@@ -76,13 +84,13 @@ const CreateNewAccount = () => {
                             Set Username
                         </strong>
                     </label>
-                    <input type="text" name="username" onChange={onChangeUsername} value={inputUsername}/>
+                    <input type="text" name="username" onChange={onChangeUsername} value={inputUsername} required/>
                     <label id = 'email'>
                         <strong>
                             Enter Email
                         </strong>
                     </label>
-                    <input type="email" name="email" onChange={onChangeEmail} value={inputEmail}/>
+                    <input type="email" name="email" onChange={onChangeEmail} value={inputEmail} required/>
 
                     <label id ='setpassword'>
                         <strong>
@@ -93,14 +101,14 @@ const CreateNewAccount = () => {
                     {showPassword 
                     ? 
                     <>
-                    <input type="text" name="setpassword" onChange= {onChangePassword} value={inputPassword}/>
+                    <input type="text" name="setpassword" onChange= {onChangePassword} value={inputPassword} required minLength={8}/>
                     <button onClick={onClick}>
                     <EyeLogoOff />
                     </button>
                     </>
                     : 
                     <>
-                    <input type='password' name ='setpassword'  onChange={onChangePassword} value={inputPassword} />
+                    <input type='password' name ='setpassword'  onChange={onChangePassword} value={inputPassword} required minLength={8}/>
                     <button onClick={onClick}>
                     <EyeLogoOn />
                     </button>
@@ -116,14 +124,14 @@ const CreateNewAccount = () => {
                     {showRepeat
                     ? 
                     <>
-                    <input type="text" name="repeatpassword" onChange= {onChangeRepeat} value={inputRepeatPassword}/>
+                    <input type="text" name="repeatpassword" onChange= {onChangeRepeat} value={inputRepeatPassword} required/>
                     <button onClick={onClickRepeat}>
                     <EyeLogoOff />
                     </button>
                     </>
                     : 
                     <>
-                    <input type='password' name ='repeatpassword'  onChange={onChangeRepeat} value={inputRepeatPassword} />
+                    <input type='password' name ='repeatpassword'  onChange={onChangeRepeat} value={inputRepeatPassword} required/>
                     <button onClick={onClickRepeat}>
                     <EyeLogoOn />
                     </button>

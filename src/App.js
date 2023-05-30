@@ -2,7 +2,7 @@ import Login from "./pages/login";
 import { Routes, Route } from "react-router-dom";
 import CreateNewAccount from "./pages/new-account";
 import RecoverPassword from "./pages/password-recovery";
-
+import Main from "./pages/main-page";
 
 function App() {
   return (
@@ -10,8 +10,11 @@ function App() {
     <>
 
     <Routes>
-      <Route path="/"
+      <Route path="/login"
       element={<Login />}/>
+
+      <Route path="/"
+      element={<Main />} />
 
       <Route path="/createaccount" 
       element={<CreateNewAccount />}/>

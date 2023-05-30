@@ -28,7 +28,7 @@ const RecoverPassword = () => {
                         Please enter the email associated to your account
                     </strong>
                 </label>
-                <input type="text" name="email" onChange={handleChange} value={inputEmail}/>
+                <input type="text" name="email" onChange={handleChange} value={inputEmail} required/>
 
                 <button>
                     Submit

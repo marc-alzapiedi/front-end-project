@@ -1,6 +1,6 @@
 import Container from "../container"
 import SiteLogo from "../../icons/SiteLogo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import EyeLogoOn from "../../icons/EyeLogoOn";
 import EyeLogoOff from "../../icons/EyeLogoOff";
@@ -10,12 +10,14 @@ import EyeLogoOff from "../../icons/EyeLogoOff";
 
 const Login = () => {
 
+
     
     const [showErr, setShowErr] = useState(false)
     const [inputUsername, setInputUsername] = useState("")
     const [inputPassword, setInputPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false)
     const [credentials, setCredentials] = useState([])
+    const navigate = useNavigate()
     
     useEffect(() => {
         fetch('http://localhost:4000/credentials')
@@ -52,7 +54,9 @@ const Login = () => {
             setShowErr(true)
         } else {
             setShowErr(false)
+            navigate('/')
         }
+
 
 
 
@@ -70,7 +74,7 @@ const Login = () => {
                         Username
                     </strong>
                 </label>
-                <input type='text' name ='username' onChange={onChangeUsername} value={inputUsername}/>
+                <input type='text' name ='username' onChange={onChangeUsername} value={inputUsername} required/>
 
                 <label id ='password'>
                     <strong>
@@ -81,14 +85,14 @@ const Login = () => {
                 {showPassword 
                 ? 
                 <>
-                <input type="text" name="password" onChange={onChangePassword} value={inputPassword}/>
+                <input type="text" name="password" onChange={onChangePassword} value={inputPassword} required/>
                 <button onClick={onClick}>
                 <EyeLogoOff />
                 </button>
                 </>
                 : 
                 <>
-                <input type='password' name ='password' onChange={onChangePassword} value={inputPassword}/>
+                <input type='password' name ='password' onChange={onChangePassword} value={inputPassword} required/>
                 <button onClick={onClick}>
                 <EyeLogoOn />
                 </button>

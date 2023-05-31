@@ -5,6 +5,7 @@ import RecoverPassword from "./pages/password-recovery";
 import Main from "./pages/main-page";
 
 function App() {
+  
   return (
 
     <>
@@ -19,7 +20,8 @@ function App() {
       <Route path="/createaccount" 
       element={<CreateNewAccount />}/>
 
-      <Route path="/recoverpassword" element={<RecoverPassword />}/>
+      <Route path="/recoverpassword" 
+      element={<RecoverPassword />}/>
 
     </Routes>
     

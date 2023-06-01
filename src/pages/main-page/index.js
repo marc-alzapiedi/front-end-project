@@ -17,23 +17,6 @@ const Main = () => {
     
     const handleClick = (event) => {
         
-        
-        const dates = {
-           [event]: [
-           ]
-        }
-
-        const options = {
-            method: "PATCH",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(dates)
-        }
-
-        fetch(`http://localhost:4000/credentials/${params.id}`, options)
-        .then((response) => response.json())
-        
 
         navigate(`/${params.id}/${event}`)
     }

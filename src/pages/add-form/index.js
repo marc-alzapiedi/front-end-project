@@ -1,17 +1,34 @@
 import Container from "../container"
 import SiteLogo from "../../icons/SiteLogo"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 
 
 const AddForm = () => {
     const params = useParams()
+    const navigate = useNavigate()
     
     const [setsValue, setSets] = useState('')
     const [repsValue, setReps] = useState('')
     const [exerciseValue, setExercise] = useState('')
     const [restValue, setRestValue] = useState('')
+    const [data, setData] = useState([])
+    const [fetchData, sendFetch] = useState(false)
+
+
+    useEffect(() => {
+        fetch(`http://localhost:4000/dates`)
+        .then((response) => response.json())
+        .then((data) => {
+            const list = data.filter((object) => (
+                object.userid === params.id && object.date === params.date
+            ))
+            setData(list)
+        })
+
+    }, [fetchData, params.id, params.date])
    
+
 
 
     const handleSets = (event) => {
@@ -38,27 +55,35 @@ const AddForm = () => {
         event.preventDefault()
        
         const workouts = {
-            [params.date]: [
-                {sets: setsValue,
-                reps: repsValue,
-                exercise: exerciseValue,
-                rest: restValue}
-            ]
+            date: params.date,
+            userid: params.id,
+            sets: setsValue,
+            reps: repsValue,
+            exercise: exerciseValue,
+            rest: restValue
         }
 
         const options = {
-            method: "PATCH",
+            method: "POST",
             headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify(workouts)
         }
 
-        fetch(`http://localhost:4000/credentials/${params.id}`, options)
+        fetch(`http://localhost:4000/dates`, options)
         .then((response) => response.json())
-      
 
+        sendFetch(!fetchData)
+        setReps('')
+        setSets('')
+        setExercise('')
+        setRestValue('')
+    
+    }
 
+    const handleClick = () => {
+        navigate(`/${params.id}`)
     }
   
 
@@ -104,9 +129,20 @@ const AddForm = () => {
 
             </form>
 
-            <button>
+            <button onClick={handleClick}>
                 Return to Calendar
             </button>
+
+            <ul>
+                {data.map((object, index) => (
+                    <li key={index}>
+                        <p>
+                            {object.sets}x sets of <strong>{object.reps}x{object.exercise}</strong> with {object.rest} seconds of rest.
+                        </p>
+
+                    </li>
+                ))}
+            </ul>
 
            
         </Container>

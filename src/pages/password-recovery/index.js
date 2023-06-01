@@ -39,7 +39,7 @@ const RecoverPassword = () => {
                     <p>
                         Nice! Now check your email for instructions on reseting your password.
                     </p>
-                    <Link to={'/'}>Return to Login</Link>
+                    <Link to={'/login'}>Return to Login</Link>
 
                 </div>
                 }

@@ -4,12 +4,15 @@ import {useState} from 'react'
 import EyeLogoOff from "../../icons/EyeLogoOff"
 import EyeLogoOn from "../../icons/EyeLogoOn"
 import { useNavigate } from "react-router-dom"
+import './style.css'
 
 
 const CreateNewAccount = () => {
 
     const [inputUsername, setInputUsername] = useState("")
     const [inputPassword, setInputPassword] = useState("")
+    // const [passwordError, setPasswordError] = useState("")
+    // const [repeatPasswordError, setRepeatPasswordError] = useState("")
     const [inputRepeatPassword, setRepeatPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false)
     const [showRepeat, setShowRepeat] = useState(false)
@@ -70,6 +73,62 @@ const CreateNewAccount = () => {
 
     }
 
+    // const handleValidation = (event) => {
+    //     const passwordInput = event.target.value.trim()
+    //     const passwordInputName = event.target.name
+
+
+    //     if (passwordInputName === 'setpassword'){
+    //         const uppercaseRegExp   = /(?=.*?[A-Z])/;
+    //         const lowercaseRegExp   = /(?=.*?[a-z])/;
+    //         const digitsRegExp      = /(?=.*?[0-9])/;
+    //         const specialCharRegExp = /(?=.*?[#?!@$%^&*-])/;
+    //         const minLengthRegExp   = /.{8,}/;
+
+    //         const uppercasePassword = uppercaseRegExp.test(passwordInput)
+    //         const lowercasePassword = lowercaseRegExp.test(passwordInput)
+    //         const digitsPassword = digitsRegExp.test(passwordInput)
+    //         const specialCharPassword = specialCharRegExp.test(passwordInput)
+    //         const minLengthPassword = minLengthRegExp.test(passwordInput)
+
+
+    //         let errorMessage = ""
+    //         if (passwordInput.length === 0) {
+    //             errorMessage = "Password is empty"
+    //         } else if (!uppercasePassword) {
+    //             errorMessage = "Password must have at least one upper case"
+    //         } else if (!lowercasePassword) {
+    //             errorMessage = "Password must have at least one lower case"
+    //         } else if (!digitsPassword) {
+    //             errorMessage = "Password must have at least one digit"
+    //         } else if (!specialCharPassword) {
+    //             errorMessage = "Password must have at least one special character"
+    //         } else if (!minLengthPassword) {
+    //             errorMessage = "Password must have a minimum of 8 characters"
+    //         } else {
+    //             errorMessage = ""
+    //         }
+
+    //         setPasswordError(errorMessage)
+    //     }
+
+    //     if (passwordInputName === 'repeatpassword' || (passwordInputName === 'password' && inputRepeatPassword.length > 0)){
+    //         console.log('if is true')
+
+    //         if (inputRepeatPassword === passwordInput){
+    //             console.log('if is true')
+                
+    //             setRepeatPasswordError("Passwords dont match, be sure that the passwords match before proceeding")
+    //         } else if (inputRepeatPassword !== passwordInput){
+    //             console.log('if is true')
+    //             console.log(inputPassword, inputRepeatPassword)
+    //             setRepeatPasswordError("")
+    //         }
+
+    //     }
+
+    // }
+
    
 
    
@@ -101,14 +160,16 @@ const CreateNewAccount = () => {
                     {showPassword 
                     ? 
                     <>
-                    <input type="text" name="setpassword" onChange= {onChangePassword} value={inputPassword} required minLength={8}/>
+                    <input type="text" name="setpassword" onChange= {onChangePassword} value={inputPassword} required minLength={8} />
+                    
                     <button onClick={onClick}>
                     <EyeLogoOff />
                     </button>
                     </>
                     : 
                     <>
-                    <input type='password' name ='setpassword'  onChange={onChangePassword} value={inputPassword} required minLength={8}/>
+                    <input type='password' name ='setpassword'  onChange={onChangePassword} value={inputPassword} required minLength={8} />
+                    
                     <button onClick={onClick}>
                     <EyeLogoOn />
                     </button>
@@ -124,14 +185,14 @@ const CreateNewAccount = () => {
                     {showRepeat
                     ? 
                     <>
-                    <input type="text" name="repeatpassword" onChange= {onChangeRepeat} value={inputRepeatPassword} required/>
+                    <input type="text" name="repeatpassword" onChange= {onChangeRepeat} value={inputRepeatPassword} required />
                     <button onClick={onClickRepeat}>
                     <EyeLogoOff />
                     </button>
                     </>
                     : 
                     <>
-                    <input type='password' name ='repeatpassword'  onChange={onChangeRepeat} value={inputRepeatPassword} required/>
+                    <input type='password' name ='repeatpassword'  onChange={onChangeRepeat} value={inputRepeatPassword} required />
                     <button onClick={onClickRepeat}>
                     <EyeLogoOn />
                     </button>

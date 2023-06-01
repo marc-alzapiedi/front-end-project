@@ -46,6 +46,8 @@ const Login = () => {
        
     }
 
+    console.log(credentials)
+
     const handleSubmit = (event) => {
         event.preventDefault()
 
@@ -54,7 +56,7 @@ const Login = () => {
             setShowErr(true)
         } else {
             setShowErr(false)
-            navigate('/')
+            navigate(`/${errControl[0].id}`)
         }
 
 

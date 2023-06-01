@@ -23,7 +23,7 @@ const Main = () => {
            ]
         }
 
-        const optionsDates = {
+        const options = {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"
@@ -31,7 +31,7 @@ const Main = () => {
             body: JSON.stringify(dates)
         }
 
-        fetch(`http://localhost:4000/credentials/${params.id}`, optionsDates)
+        fetch(`http://localhost:4000/credentials/${params.id}`, options)
         .then((response) => response.json())
         
 

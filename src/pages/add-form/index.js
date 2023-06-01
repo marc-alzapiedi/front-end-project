@@ -11,6 +11,8 @@ const AddForm = () => {
     const [repsValue, setReps] = useState('')
     const [exerciseValue, setExercise] = useState('')
     const [restValue, setRestValue] = useState('')
+   
+
 
     const handleSets = (event) => {
         setSets(event.target.value)
@@ -34,6 +36,27 @@ const AddForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+       
+        const workouts = {
+            [params.date]: [
+                {sets: setsValue,
+                reps: repsValue,
+                exercise: exerciseValue,
+                rest: restValue}
+            ]
+        }
+
+        const options = {
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(workouts)
+        }
+
+        fetch(`http://localhost:4000/credentials/${params.id}`, options)
+        .then((response) => response.json())
+      
 
 
     }
@@ -50,14 +73,14 @@ const AddForm = () => {
                         Workout Sets
                     </strong>
                 </label>
-                <input type="text" name="sets" onChange={handleSets} value={setsValue} required/>
+                <input type="number" name="sets" onChange={handleSets} value={setsValue} required min={0}/>
 
                 <label id="reps">
                     <strong>
                         Workout Reps
                     </strong>
                 </label>
-                <input type="text" name="reps" onChange={handleReps} value={repsValue} required/>
+                <input type="number" name="reps" onChange={handleReps} value={repsValue} required min={0}/>
 
 
                 <label id="Exercise">
@@ -70,19 +93,20 @@ const AddForm = () => {
 
                 <label id="Rest">
                     <strong>
-                        Workout Rest
+                        Workout Rest (seconds)
                     </strong>
                 </label>
-                <input type="text" name="rest" onChange={handleRest} value={restValue} required/>
+                <input type="number" name="rest" onChange={handleRest} value={restValue} required min={0}/>
 
                 <button>
                     Add workout
                 </button>
-                <button>
-                    Return to Calendar
-                </button>
 
             </form>
+
+            <button>
+                Return to Calendar
+            </button>
 
            
         </Container>

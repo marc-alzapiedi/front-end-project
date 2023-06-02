@@ -4,6 +4,7 @@ import CreateNewAccount from "./pages/new-account";
 import RecoverPassword from "./pages/password-recovery";
 import Main from "./pages/main-page";
 import AddForm from "./pages/add-form";
+import BlockedRoute from "./assets/BlockedRoute";
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
     <>
 
     
-
+    <BlockedRoute />
     <Routes>
       <Route path="/"
       element={<Login />}/>

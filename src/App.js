@@ -11,8 +11,10 @@ function App() {
 
     <>
 
+    
+
     <Routes>
-      <Route path="/login"
+      <Route path="/"
       element={<Login />}/>
 
       <Route path="/:id"

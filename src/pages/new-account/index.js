@@ -1,10 +1,9 @@
 import Container from "../container"
 import SiteLogo from "../../icons/SiteLogo"
 import {useState} from 'react'
-import EyeLogoOff from "../../icons/EyeLogoOff"
-import EyeLogoOn from "../../icons/EyeLogoOn"
+
 import { useNavigate } from "react-router-dom"
-import './style.css'
+
 
 
 const CreateNewAccount = () => {
@@ -14,8 +13,6 @@ const CreateNewAccount = () => {
     // const [passwordError, setPasswordError] = useState("")
     // const [repeatPasswordError, setRepeatPasswordError] = useState("")
     const [inputRepeatPassword, setRepeatPassword] = useState("")
-    const [showPassword, setShowPassword] = useState(false)
-    const [showRepeat, setShowRepeat] = useState(false)
     const [inputEmail, setEmail] = useState("")
     const navigate = useNavigate()
 
@@ -34,18 +31,6 @@ const CreateNewAccount = () => {
 
     const onChangeRepeat = (event) => {
         setRepeatPassword(event.target.value)
-    }
-
-    const onClick = (event) => {
-        event.preventDefault()
-        setShowPassword(!showPassword)
-
-    }
-
-    const onClickRepeat = (event) => {
-        event.preventDefault()
-        setShowRepeat(!showRepeat)
-
     }
 
     const handleSubmit = (event) => {
@@ -156,48 +141,22 @@ const CreateNewAccount = () => {
                             Set Password
                         </strong>
                     </label>
-
-                    {showPassword 
-                    ? 
-                    <>
-                    <input type="text" name="setpassword" onChange= {onChangePassword} value={inputPassword} required minLength={8} />
+                    <input type="password" name="setpassword" onChange= {onChangePassword} value={inputPassword} required minLength={8} />
                     
-                    <button onClick={onClick}>
-                    <EyeLogoOff />
-                    </button>
-                    </>
-                    : 
-                    <>
-                    <input type='password' name ='setpassword'  onChange={onChangePassword} value={inputPassword} required minLength={8} />
+                 
                     
-                    <button onClick={onClick}>
-                    <EyeLogoOn />
-                    </button>
-                    </>
-                    }
 
                     <label id ='repeatpassword'>
                         <strong>
                             Re-enter Password
                         </strong>
                     </label>
-
-                    {showRepeat
-                    ? 
-                    <>
-                    <input type="text" name="repeatpassword" onChange= {onChangeRepeat} value={inputRepeatPassword} required />
-                    <button onClick={onClickRepeat}>
-                    <EyeLogoOff />
-                    </button>
-                    </>
-                    : 
-                    <>
+                   
+                   
+                   
                     <input type='password' name ='repeatpassword'  onChange={onChangeRepeat} value={inputRepeatPassword} required />
-                    <button onClick={onClickRepeat}>
-                    <EyeLogoOn />
-                    </button>
-                    </>
-                    }
+                    
+                    
 
 
                 <button>

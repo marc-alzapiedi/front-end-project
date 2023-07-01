@@ -1,4 +1,4 @@
-import './sitelogo.css'
+import './style.css'
 
 const SiteLogo = () => {
 

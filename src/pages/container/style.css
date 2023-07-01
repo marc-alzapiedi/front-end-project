@@ -1,25 +1,19 @@
-/* *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    color: white;
-}
-
-
 header{
-   display: grid;
-   align-items: center;
-   background-color: #000046;
-   height: 80px;
-   width: 100vw;
-   position: fixed;
-   font-size: 30px;
-   top: 0;
+    display: grid;
+    background-color: rgb(128, 28, 28);
+    color: white;
+    padding-left: 20px;
+    font-size: 25px;
 }
 
-p{
-    padding-left: 20px;
-} */
+.container{
+    display: grid;
+    grid-template-rows: 600px;
+    grid-template-columns: 600px;
+    justify-content: center;
+}
+
+
+
 
 

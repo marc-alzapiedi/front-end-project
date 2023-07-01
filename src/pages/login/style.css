@@ -1,0 +1,49 @@
+form{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 500px;
+    background-color:  rgba(128, 28, 28, 0.315);
+    border-radius: 20px;
+    position: relative;
+    grid-auto-rows: min-content;
+    top: 85px;
+    height: max-content;
+    padding: 50px;
+    gap: 10px;
+}
+
+#username, #password, #email, #setpassword, #repeatpassword{
+    font-size: 25px;
+    height: min-content;
+    margin-top: 10px;
+}
+
+input, button{
+    height: 40px;
+    border-radius: 5px;
+    border: solid;
+}
+
+button{
+    background-color: #801C1C;
+    color: white;
+    border: none;
+    font-size: larger;
+    cursor: pointer;
+    margin-top: 50px;
+    
+}
+
+form > div{
+    font-size: larger;
+    justify-self: center;
+    margin-top: 50px;
+}
+
+form > div > a{
+    position: relative;
+    left: 20px;
+    text-decoration: none;
+   
+}
+

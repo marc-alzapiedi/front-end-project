@@ -2,6 +2,7 @@ import Container from "../container"
 import SiteLogo from "../../icons/SiteLogo";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react'
+import './style.css'
 
 
 
@@ -92,14 +93,9 @@ const Login = () => {
             
                 <input type='password' name ='password' onChange={onChangePassword} value={inputPassword} required/>
                 
-               
-                
-
                 <button>
                     Login
                 </button>
-
-
 
                 <div>
                     {

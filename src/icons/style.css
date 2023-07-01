@@ -1,0 +1,7 @@
+svg{
+    display: grid;
+    justify-self: center;
+    height: 70px;
+    width: 70px;
+    padding-top: 20px;
+}

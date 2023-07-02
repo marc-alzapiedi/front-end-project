@@ -2,6 +2,7 @@ import Container from "../container"
 import SiteLogo from "../../icons/SiteLogo"
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
+import './style.css'
 
 
 const AddForm = () => {
@@ -14,7 +15,7 @@ const AddForm = () => {
     const [restValue, setRestValue] = useState('')
     const [data, setData] = useState([])
     const [fetchData, sendFetch] = useState(false)
-
+    
 
     useEffect(() => {
         fetch(`http://localhost:4000/dates`)
@@ -88,24 +89,24 @@ const AddForm = () => {
   
 
     return(
-        <Container>
+        <Container className = "add-form">
+
+            <form onSubmit={handleSubmit} className="addWorkout">
             <SiteLogo />
             <h5>🏋️‍♀️Workouts to do on {params.date}</h5>
-
-            <form onSubmit={handleSubmit}>
                 <label id="sets">
                     <strong>
                         Workout Sets
                     </strong>
                 </label>
-                <input type="number" name="sets" onChange={handleSets} value={setsValue} required min={0}/>
+                <input type="number" name="sets" onChange={handleSets} value={setsValue} required min={0} className = "add-form-input"/>
 
                 <label id="reps">
                     <strong>
                         Workout Reps
                     </strong>
                 </label>
-                <input type="number" name="reps" onChange={handleReps} value={repsValue} required min={0}/>
+                <input type="number" name="reps" onChange={handleReps} value={repsValue} required min={0} className = "add-form-input"/>
 
 
                 <label id="Exercise">
@@ -113,7 +114,7 @@ const AddForm = () => {
                         Workout Exercise
                     </strong>
                 </label>
-                <input type="text" name="exercise" onChange={handleExercise} value={exerciseValue} required/>
+                <input type="text" name="exercise" onChange={handleExercise} value={exerciseValue} required className = "add-form-input"/>
 
 
                 <label id="Rest">
@@ -121,17 +122,17 @@ const AddForm = () => {
                         Workout Rest (seconds)
                     </strong>
                 </label>
-                <input type="number" name="rest" onChange={handleRest} value={restValue} required min={0}/>
+                <input type="number" name="rest" onChange={handleRest} value={restValue} required min={0} className = "add-form-input"/>
 
-                <button>
+                <button className = "add-form-elements">
                     Add workout
                 </button>
 
+                <button onClick={handleClick} className = "add-form-elements">
+                    Return to Calendar
+                </button>
             </form>
 
-            <button onClick={handleClick}>
-                Return to Calendar
-            </button>
 
             <ul>
                 {data.map((object, index) => (

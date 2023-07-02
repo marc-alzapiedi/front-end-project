@@ -1,8 +1,8 @@
 import Container from "../container"
 import SiteLogo from "../../icons/SiteLogo"
 import {useState} from 'react'
-
 import { useNavigate } from "react-router-dom"
+
 
 
 
@@ -114,7 +114,7 @@ const CreateNewAccount = () => {
                     
 
 
-                <button>
+                <button className="login">
                     Create an Account and Login
                 </button>
 

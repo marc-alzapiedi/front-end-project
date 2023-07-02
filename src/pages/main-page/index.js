@@ -4,7 +4,7 @@ import Calendar from 'react-calendar'
 import Container from '../container'
 import SiteLogo from '../../icons/SiteLogo'
 import 'react-calendar/dist/Calendar.css'
-
+import './style.css'
 
 const Main = () => {
 
@@ -60,7 +60,7 @@ const Main = () => {
         <>
         <Container>
 
-            <div>
+            <div className = 'calendar'>
                 <SiteLogo />
                 <p>
                     <strong>
@@ -69,9 +69,9 @@ const Main = () => {
                 </p>
 
                 <Calendar onChange={selectDate} onClickDay={handleClickDay} value={date} />
+                <Link to={'/'} onClick={handleClickLink} className='logout'>Logout</Link>
             </div>
 
-            <Link to={'/'} onClick={handleClickLink}>Logout</Link>
         </Container>
         
         </>

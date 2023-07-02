@@ -1,0 +1,41 @@
+.add-form-input, .add-form-elements{
+    height: 4vh;
+}
+
+.add-form-elements{
+    color: white;
+    background-color: #801C1C;
+    border: none;
+    border-radius: 50px;
+    font-size: medium;
+}
+
+.add-form-input{
+    display: grid;
+    font-size: larger;
+    justify-items: center;
+}
+
+.add-form{
+    display: grid;
+    grid-template-columns: auto 500px;
+    gap: 45px;
+}
+
+ul{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 500px;
+    grid-auto-rows: min-content;
+    background-color:  rgba(128, 28, 28, 0.315);
+    border-radius: 20px;
+    margin: 0;
+    position: relative;
+    top: 30px;
+}
+
+li{
+    padding: 15px;
+    list-style-type: none;
+    height: 20px;
+}

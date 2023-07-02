@@ -1,6 +1,6 @@
 import './style.css'
 
-const Container = ({children}) => {
+const Container = ({children, className}) => {
     return (
         <>
         <header> 
@@ -9,7 +9,7 @@ const Container = ({children}) => {
             </p>
                 
         </header>
-        <div className = "container">
+        <div className = {`container ${className}`}>
             {children}
             
         </div>

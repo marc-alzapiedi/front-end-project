@@ -93,7 +93,7 @@ const Login = () => {
             
                 <input type='password' name ='password' onChange={onChangePassword} value={inputPassword} required/>
                 
-                <button>
+                <button className="login">
                     Login
                 </button>
 

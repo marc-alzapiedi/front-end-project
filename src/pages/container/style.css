@@ -8,9 +8,9 @@ header{
 
 .container{
     display: grid;
-    grid-template-rows: 600px;
     grid-template-columns: 600px;
     justify-content: center;
+    height: 79.4vh;
 }
 
 
